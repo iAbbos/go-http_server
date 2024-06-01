@@ -1,0 +1,56 @@
+### Respond with 200
+GET http://localhost:4221/
+
+### Extract URL path
+GET http://localhost:4221/abcdefg
+Accept: */*
+
+### Respond with body
+GET http://localhost:4221/echo/hello-world
+Host: localhost:4221
+User-Agent: curl/7.64.1
+Accept: */*
+
+### Read header
+GET http://localhost:4221/user-agent
+Host: localhost:4221
+User-Agent: foobar/1.2.3
+Accept: */*
+
+### Get a file
+GET http://localhost:4221/files/hello.txt
+Host: localhost:4221
+User-Agent: foobar/1.2.3
+Accept: */*
+
+### Post a file
+POST http://localhost:4221/files/hello.txt
+Host: localhost:4221
+User-Agent: foobar/1.2.3
+Accept: */*
+
+< ./msg.txt
+
+### Content-Encoding header
+GET http://localhost:4221/echo/foo HTTP/1.1
+Host: localhost:4221
+User-Agent: idea/tester
+Accept-Encoding: gzip
+
+### Multiple compression schemes
+GET http://localhost:4221/echo/foo HTTP/1.1
+Host: localhost:4221
+User-Agent: idea/tester
+Accept-Encoding: encoding-1, gzip, encoding-2
+
+### Multiple compression schemes (without gzip)
+GET http://localhost:4221/echo/foo HTTP/1.1
+Host: localhost:4221
+User-Agent: idea/tester
+Accept-Encoding: encoding-1, encoding-2
+
+### Gzip compression
+GET http://localhost:4221/echo/foo HTTP/1.1
+Host: localhost:4221
+User-Agent: idea/tester
+Accept-Encoding: gzip
