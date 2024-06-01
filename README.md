@@ -25,7 +25,7 @@ cd go-http_server
 ~~~ 
 3. Build and run the server:
 ~~~sh 
-go run app/main.go
+go run cmd/app/main.go
 ~~~  
 
 ## Usage ##
